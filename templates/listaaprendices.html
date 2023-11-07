@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clases de Programación en Python</title>
+    <meta name="description" content="Anuncio de clases de programación en Python">
+    <meta name="keywords" content="Python, programación, clases">
+    <link rel="stylesheet" type="text/css" href={% static 'css/test.css' %}>
+    <link rel="stylesheet" type="text/css" href={% static 'css/bootstrap.min.css' %}>
+</head>
+<body>
+    <header>
+        <h1>Lista Aprendices ADSO</h1>
+    </header>
+    {% comment %} {%for ap in get_aprendices %}
+    {{ap.nombre}}
+    {%endfor%} {% endcomment %}
+    <div class="container">
+      <table class="table table-sm">
+        <thead>
+      <tr>            
+        <th scope="col">Foto</th>
+        <th scope="col">Documento</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Ficha</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for apr in get_aprendices%}
+      <tr>
+        <td>{{apr.nombre}}</td>
+        <td>{{apr.documento}}</td>        
+        <td>{{apr.ficha}}</td>
+        <td ><img src="{{apr.photo.url}}" width="40" height="40"></td>                                    
+        
+      </tr>
+      {%endfor%}      
+    </tbody>      
+    </table>    
+    </div>
+</body>
+</html>
